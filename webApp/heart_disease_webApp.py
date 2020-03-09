@@ -39,7 +39,7 @@ def status():
 #     return pd.DataFrame(input_data)
 
 
-@app.route("/predictions", methods=["GET", "POST"])
+@app.route("/predictions", methods=["POST"])
 def predict():
     # load model
     model = pickle.load(open("model/rf_model_heart_disease.pkl", "rb"))
