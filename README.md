@@ -6,8 +6,8 @@ Project has two major parts:
    - _exploration_: This contains jupyter notebook with Heart Disease Data Analysis.
         - _data_: Csv-file with Heart Disease data
         - _model_: Python script with RandomForestClassifier Model and pickled model as a file using pickle.
-   - _webApp_: Flask Application with template to make predictions using simple and friendly user interface.
-        - _tests_: This contains some test for webApp.
+   - _webapp_: Flask Application with template to make predictions using simple and friendly user interface.
+        - _tests_: This contains some test for webapp.
 
 ### Installation:
 To run this project it is recommended to setup a conda (or virtual) environment by using requirements.txt file.   
@@ -15,9 +15,9 @@ To run this project it is recommended to setup a conda (or virtual) environment 
 conda create --name <env> --file <requirements.txt> 
 conda activate <your path> 
 ```
-Running the project:
+#### Running the project:
 ```
-export FLASK_APP=webApp/heart_disease_webA
+export FLASK_APP=webApp/heart_disease_webapp
 flask run
 ```
 and tests: 

@@ -1,5 +1,5 @@
 import pytest
-from webApp.heart_disease_webApp import app
+from webapp.heart_disease_webapp import app
 
 
 @pytest.fixture
