@@ -15,16 +15,15 @@ To run this project it is recommended to setup a conda (or virtual) environment 
 conda create --name <env> --file <requirements.txt> 
 conda activate <your path> 
 ```
-#### Running project:
+#### Run webapp:
 ```
 export FLASK_APP=webApp/heart_disease_webapp
 flask run
 ```
-and tests: 
+execute tests: 
 ```
 pytest -v tests/tests.py
 ```
 ### Overview
 
 ![minipic](img/inputs.png)
-![minipic](img/prediction.png)
