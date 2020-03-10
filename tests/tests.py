@@ -29,7 +29,7 @@ def test_post(client):
         "ca": 0,
         "thal": 3
     })
-    assert b"There is 0.45% chance of having a heart disease." in response.data
+    assert b"There is 45.0% chance of having a heart disease." in response.data
 
 
 def test_missing_values(client):

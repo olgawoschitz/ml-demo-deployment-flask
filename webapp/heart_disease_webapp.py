@@ -26,7 +26,7 @@ def predict():
     # make predictions
     pred_proba = model.predict_proba(X_test)
     return render_template("index.html",
-                           prediction_text=f"There is {pred_proba[0][1]}% chance of having a heart disease.")
+                           prediction_text=f"There is {pred_proba[0][1] * 100}% chance of having a heart disease.")
 
 
 if __name__ == "__main__":
