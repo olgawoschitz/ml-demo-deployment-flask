@@ -24,12 +24,12 @@ def test_post(client):
         "restecg": 1,
         "thalach": 130,
         "exang": 1,
-        "oldpeak": 1,
+        "oldpeak": 0.2,
         "slope": 2,
         "ca": 0,
         "thal": 3
     })
-    assert b"There is 0.31% chance of having a heart disease." in response.data
+    assert b"There is 0.45% chance of having a heart disease." in response.data
 
 
 def test_missing_values(client):
