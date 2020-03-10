@@ -4,8 +4,8 @@
     <style>
         body {
             background-color: whitesmoke;
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: auto;
             text-align: center;
             display: block;
             border: none;
@@ -15,157 +15,154 @@
             cursor: pointer;
             margin-left: 0px;
         }
+
         h1 {
-            color: darkslategrey;
+            color: darkslategray;
             text-align: center;
-            margin-left: 24px;
+            margin-left: 16px;
+            font-size: 28px;
         }
+
+        h2 {
+            color: dimgray;
+            text-align: center;
+            margin-left: 16px;
+            font-size: 20px;
+        }
+
         p {
             color: black;
             text-align: center;
             margin-left: 24px;
         }
-        .block {
-            display: block;
-            width: 100%;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px 32px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            margin-left: 0px;
-        }
+
         form {
-            align:"center";
+            align: "center";
             font-size: 22px;
+            width: auto;
+            height: auto;
         }
+
         fieldset {
-              width: 100%;
-              position: center;
-              font-size: 18px;
-              background-color: lightgrey;
-              display: block;
-              margin-left: 8px;
-              margin-right: 8px;
-              border: 2px groove;
-              border-color: grey;
+            width: auto;
+            position: center;
+            font-size: 18px;
+            background-color: lightgrey;
+            display: block;
+            margin-left: 8px;
+            margin-right: 8px;
+            border: 2px groove;
+            border-color: grey;
         }
+
         input, select {
-             font-size: 14px;
-             color: darkgreen;
+            font-size: 14px;
+            color: darkgreen;
+            width: auto;
+            height: auto;
         }
-        button{
+
+        button {
             font-size: 16px;
             position: center;
             color: darkgreen;
             width: 450px;
             height: 50px;
         }
-        .block:hover {
-            background-color: #ddd;
-            color: black;
-        }
     </style>
     {% block head %}
-        <title>{% block title %}{% endblock %} Heart Disease Analysis </title> <!-- tag name for a side -->
+    <title>{% block title %}{% endblock %} Heart Disease Analysis </title> <!-- tag name for a side -->
     {% endblock %}
 </head>
 
 <body>
-<div class="in">
-    <h1>Heart Disease Analysis with Machine Learning Model </h1>
-    <form action="{{url_for('predict')}}" method="post">
-        <fieldset>
-            <p>
+<h1>Heart Disease Analysis with Machine Learning Model </h1>
+<form action="{{url_for('predict')}}" method="post">
+    <fieldset>
+        <p>
             <label>Age</label>
-            <input type = "number" name="age" required="required"/>
-            </p>
-            <p>
+            <input type="number" name="age" required="required"/>
+        </p>
+        <p>
             <label for="sex">Sex:</label>
-                <select id="sex" name="sex">
+            <select id="sex" name="sex">
                 <option value="1">Male</option>
                 <option value="0">Female</option>
-                </select>
-            </p>
-            <p>
-              <label for="cp">Chest Pain Type:</label>
-                <select id="cp" name="cp">
-                    <option value="0">Typical Angina</option>
-                    <option value="1">Atypical Angina</option>
-                    <option value="2">Non-anginal Pain</option>
-                    <option value="3">Asymptomatic</option>
-                </select>
-            </p>
-            <p>
+            </select>
+        </p>
+        <p>
+            <label for="cp">Chest Pain Type:</label>
+            <select id="cp" name="cp">
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-anginal Pain</option>
+                <option value="3">Asymptomatic</option>
+            </select>
+        </p>
+        <p>
             <label>Resting Blood Pressure</label>
-                <input type = "number" name ="trestbps" required="required"/>
-            </p>
-            <p>
+            <input type="number" name="trestbps" required="required"/>
+        </p>
+        <p>
             <label>Serum Cholestoral</label>
-                <input type = "number" name ="chol" required="required"/>
-            </p>
-            <p>
+            <input type="number" name="chol" required="required"/>
+        </p>
+        <p>
             <label>Fasting Blood Sugar</label>
             <select id="fbs" name="fbs">
                 <option value="0"> over 120 mg/dl</option>
                 <option value="1"> under 120 mg/dl</option>
-                </select>
-            </p>
-            <p>
-                <label>Resting Electrocardiographic Results</label>
-                <select id="restecg" name="restecg">
-                    <option value="0">normal</option>
-                    <option value="1">having ST-T wave abnormality</option>
-                    <option value="2">showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
-                </select>
-            </p>
-            <p>
+            </select>
+        </p>
+        <p>
+            <label>Resting Electrocardiographic Results</label>
+            <select id="restecg" name="restecg">
+                <option value="0">normal</option>
+                <option value="1">having ST-T wave abnormality</option>
+                <option value="2">showing probable or definite left ventricular hypertrophy by Estes' criteria
+                </option>
+            </select>
+        </p>
+        <p>
             <label>Resting Heart Rate</label>
-                <input type = "number" name ="thalach" required="required"/>
-            </p>
-            <p>
-                <label>Exercise Induced Angina</label>
-                <select id="exang" name="exang">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
-            </p>
-            <p>
-             <label>ST Depression Induced by Exercise Relative to Rest</label>
-                <input type = "number" name ="oldpeak" required="required"/>
-            </p>
-            <p>
-                <label>The Slope of the Peak Exercise ST Segment</label>
-                <select id="slope" name="slope">
-                    <option value="1">upsloping</option>
-                    <option value="2">flat</option>
-                    <option value="3">downsloping</option>
-                </select>
-            </p>
-            <p>
-              <label>Number of Major Vessels (0-3) Colored by Flourosopy</label>
-                <input type = "number" name ="ca" required="required"/>
-            </p>
-            <p>
-                <label>Thal</label>
-                <select id="thal" name="thal">
-                    <option value="3">normal</option>
-                    <option value="6">fixed defect</option>
-                    <option value="7">reversable defect</option>
-                </select>
-            </p>
-            <p>
-                <button type="submit" class="bth btn-primary bth-block bth-large">Predict</button>
-            </p>
-        </fieldset>
-    </form>
-    <br>
-    <br>
-     <fieldset>
-        {{prediction_text}}
-     </fieldset>
+            <input type="number" name="thalach" required="required"/>
+        </p>
+        <p>
+            <label>Exercise Induced Angina</label>
+            <select id="exang" name="exang">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </p>
+        <p>
+            <label>ST Depression Induced by Exercise Relative to Rest</label>
+            <input type="number" name="oldpeak" required="required"/>
+        </p>
+        <p>
+            <label>The Slope of the Peak Exercise ST Segment</label>
+            <select id="slope" name="slope">
+                <option value="1">upsloping</option>
+                <option value="2">flat</option>
+                <option value="3">downsloping</option>
+            </select>
+        </p>
+        <p>
+            <label>Number of Major Vessels (0-3) Colored by Flourosopy</label>
+            <input type="number" name="ca" required="required"/>
+        </p>
+        <p>
+            <label>Thal</label>
+            <select id="thal" name="thal">
+                <option value="3">normal</option>
+                <option value="6">fixed defect</option>
+                <option value="7">reversable defect</option>
+            </select>
+        </p>
+        <p>
+            <button type="submit">Predict</button>
+        <h2>{{prediction_text}}</h2>
+    </fieldset>
+</form>
 </div>
 </body>
 </html>
